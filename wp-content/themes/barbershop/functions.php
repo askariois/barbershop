@@ -184,6 +184,8 @@ function barbershop_scripts()
 
 	wp_enqueue_script('barbershop-jquery', get_template_directory_uri() . '/assets/js/jquery.min.js', array(), _S_VERSION, true);
 	wp_enqueue_script('barbershop-migrate', get_template_directory_uri() . '/assets/js/jquery-migrate-3.0.1.min.js', array(), _S_VERSION, true);
+	wp_enqueue_script('barbershop-send_ajax', get_template_directory_uri() . '/assets/js/send_ajax.js', array(), _S_VERSION, true);
+	wp_enqueue_script('barbershop-validate', 	'https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js', array(), '20151215', true);
 	wp_enqueue_script('barbershop-popper', get_template_directory_uri() . '/assets/js/popper.min.js', array(), _S_VERSION, true);
 	wp_enqueue_script('barbershop-bootstrapjs', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), _S_VERSION, true);
 	wp_enqueue_script('barbershop-easing', get_template_directory_uri() . '/assets/js/jquery.easing.1.3.js', array(), _S_VERSION, true);

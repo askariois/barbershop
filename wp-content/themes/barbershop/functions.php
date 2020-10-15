@@ -12,7 +12,6 @@ require_once get_template_directory()  . '/inc/carbon-fields/carbon-fields-plugi
 
 
 require_once get_template_directory()  . '/inc/custom-fields/post-meta.php';
-require_once get_template_directory()  . '/inc/custom-fields/theme-option.php';
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
 	define('_S_VERSION', '1.0.0');
@@ -58,7 +57,7 @@ if (!function_exists('barbershop_setup')) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__('Primary', 'barbershop'),
+				'menu-1' => esc_html__('Главное', 'barbershop'),
 			)
 		);
 
@@ -233,3 +232,33 @@ require get_template_directory() . '/inc/customizer.php';
 if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+class Home_Walker extends Walker_Nav_Menu
+{
+	function start_el(&$output,  $item, $deep = 0, $args = array(), $id = 0)
+	{
+		$classes = empty($item->classes) ? array() : (array) $item->classes;
+		$class_names = join(' ', apply_filters('', array_filter($classes), $item));
+		!empty($class_names) and $class_names = ' class="' . esc_attr($class_names) . '"';
+		$output .= "";
+		$attributes  = '';
+		!empty($item->attr_title) and $attributes .= ' title="'  . esc_attr($item->attr_title) . '"';
+		!empty($item->target) and $attributes .= ' target="' . esc_attr($item->target) . '"';
+		!empty($item->xfn) and $attributes .= ' rel="'    . esc_attr($item->xfn) . '"';
+		!empty($item->url) and $attributes .= ' href="'   . esc_attr($item->url) . '"';
+		$title = apply_filters('the_title', $item->title, $item->ID);
+		$item_output = $args->before
+			. "<li class='nav-item'><a class='nav-link' $attributes>"
+			. $args->link_before
+			. $title
+			. '</a></li>'
+			. $args->link_after
+			. $args->after;
+		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $args);
+	}
+}
+
+remove_filter('the_content', 'wpautop');
+
+remove_filter('the_excerpt', 'wpautop');

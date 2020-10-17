@@ -12069,3 +12069,13 @@ textarea.form-control {
 .ftco-navbar-light .navbar-nav>.nav-item:first-child a {
     color: #ce9c6b!important;
 }
+
+div#footer {
+    display: none;
+}
+
+span.error {
+    font-size: 11px;
+    color: #ff8383;
+    font-weight: bold;
+}

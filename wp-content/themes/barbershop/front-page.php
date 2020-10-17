@@ -162,7 +162,7 @@
 				<form action="" id="pingForm" class="appointment-form">
 					<div class="d-md-flex">
 						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Имя">
+							<input type="text" name="name" class="form-control" placeholder="Имя" required>
 						</div>
 						<div class="form-group ml-md-4">
 							<input type="text" nmae="fullname" class="form-control" placeholder="Фамилия">
@@ -172,27 +172,27 @@
 						<div class="form-group">
 							<div class="input-wrap">
 								<div class="icon"><span class="ion-md-calendar"></span></div>
-								<input type="text" name="date" id="appointment_date" class="form-control" placeholder="Дата">
+								<input type="text" name="date" id="appointment_date" class="form-control" placeholder="Дата" required>
 							</div>
 						</div>
 						<div class="form-group ml-md-4">
 							<div class="input-wrap">
 								<div class="icon"><span class="ion-ios-clock"></span></div>
-								<input type="text" name="time" id="appointment_time" class="form-control" placeholder="Время">
+								<input type="text" name="time" id="appointment_time" class="form-control" placeholder="Время" required>
 							</div>
 						</div>
 						<div class="form-group ml-md-4">
-							<input type="text" name="phone" class="form-control" placeholder="Телефон номер">
+							<input type="text" name="phone" class="form-control" placeholder="Телефон номер" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<textarea name="message" id="" cols="30" rows="3" class="form-control" placeholder="Сообщение"></textarea>
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Записаться" class="btn btn-primary py-3 px-4">
+						<button type="submit" class="btn btn-primary py-3 px-4">Записаться </button>
 					</div>
 				</form>
-				<div class="contact_result"></div>
+				<div class="mt-3" id="contact_result"></div>
 			</div>
 		</div>
 		</div>
